@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS cards (
     updated_at TIMESTAMP NOT NULL,
     last_review_at TIMESTAMP NOT NULL,
     next_review_at TIMESTAMP NOT NULL,
-    FOREIGN KEY (deck_id) REFERENCES decks (id)
+    FOREIGN KEY (deck_id) REFERENCES decks (id) ON DELETE CASCADE
 );
 
 -- Create v_decks view

@@ -15,6 +15,12 @@ func GetDataBase() (*sql.DB, error) {
 	if err != nil {
 		return nil, err
 	}
+	// have to turn this setting on everytime we connect to the database
+	// in order for foreign keys to work properly
+	_, err = db.Exec("PRAGMA foreign_keys = ON;")
+	if err != nil {
+		return nil, err
+	}
 	err = createTables(db)
 	if err != nil {
 		return nil, err
